@@ -1,0 +1,34 @@
+# Build directories
+build/
+cmake-build-*/
+out/
+
+# Compiled objects
+*.o
+*.obj
+*.exe
+*.out
+*.app
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+Makefile
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Executables
+phase1_demo
+compile_time_tests
+
+# Testing
+Testing/
+CTestTestfile.cmake
