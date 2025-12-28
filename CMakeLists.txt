@@ -9,6 +9,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 # Generate compile_commands.json for IDE/tooling support
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# C++ clang-tidy
+set(CMAKE_CXX_CLANG_TIDY "clang-tidy")
+# ============================================================================
+# Build Type Configuration
+# ============================================================================
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif()
+
+# Release build flags
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+
+# Debug build flags
+set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -DDEBUG")
+
 # ============================================================================
 # Compiler Warnings
 # ============================================================================
