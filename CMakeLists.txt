@@ -59,12 +59,18 @@ add_executable(compile_time_tests
     tests/compile_time_tests.cpp
 )
 
+add_executable(runtime_tests 
+    tests/runtime_tests.cpp
+)
+
+
 # ============================================================================
 # Enable Testing
 # ============================================================================
 enable_testing()
 
 add_test(NAME CompileTimeTests COMMAND compile_time_tests)
+add_test(NAME RunTimeTests COMMAND runtime_tests)
 add_test(NAME Phase1Demo COMMAND phase1_demo)
 
 # ============================================================================
