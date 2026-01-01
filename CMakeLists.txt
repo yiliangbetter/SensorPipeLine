@@ -46,7 +46,7 @@ endif()
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # ============================================================================
-# Phase 1: Type-Safe Units & Frames
+# Enable Testing
 # ============================================================================
 
 # Example executable
@@ -63,16 +63,32 @@ add_executable(runtime_tests
     tests/runtime_tests.cpp
 )
 
-
 # ============================================================================
-# Enable Testing
-# ============================================================================
+# Phase 1: Type-Safe Units & Frames
+# ===
 enable_testing()
+
+find_package(GTest QUIET)
+if(NOT GTest_FOUND)
+    # Download Google Test if not found
+    include(FetchContent)
+    FetchContent_Declare(
+        googletest
+        GIT_REPOSITORY https://github.com/google/googletest.git
+        GIT_TAG v1.14.0
+        GIT_SHALLOW TRUE
+    )
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(googletest)
+endif()
+
+target_link_libraries(runtime_tests GTest::gtest_main)
 
 add_test(NAME CompileTimeTests COMMAND compile_time_tests)
 add_test(NAME RunTimeTests COMMAND runtime_tests)
 add_test(NAME Phase1Demo COMMAND phase1_demo)
-
+# include(GoogleTest)
+# gtest_discover_tests(runtime_tests)
 # ============================================================================
 # Installation (optional)
 # ============================================================================
