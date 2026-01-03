@@ -73,10 +73,10 @@ static_assert(
 // Test 9: Identity transform
 constexpr auto test_identity_transform() {
   auto T = identity_transform<VehicleFrame, VehicleFrame>();
-  const Point3D<VehicleFrame> p{1.0_m, 2.0_m, 3.0_m};
+  const Point3D<VehicleFrame> p{1.0_m, -2.0_m, 3.0_m};
   auto p_transformed = T(p);
 
-  return p_transformed.x.value == 1.0 && p_transformed.y.value == 2.0 &&
+  return p_transformed.x.value == 1.0 && p_transformed.y.value == -2.0 &&
          p_transformed.z.value == 3.0;
 }
 static_assert(test_identity_transform());

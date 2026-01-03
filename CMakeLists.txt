@@ -11,6 +11,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # C++ clang-tidy
 set(CMAKE_CXX_CLANG_TIDY "clang-tidy")
+option(CMAKE_BUILD_TYPE "Release" "Choose the type of build.")
 # ============================================================================
 # Build Type Configuration
 # ============================================================================
